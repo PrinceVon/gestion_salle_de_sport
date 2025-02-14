@@ -1,0 +1,35 @@
+<div class="d-flex">
+  <app-sidebar></app-sidebar>
+  <div class="content flex-grow-1 p-4">
+    <div class="container mt-4">
+      <h2>🎟 Choisir une Offre d'Abonnement</h2>
+    
+      <table class="table table-striped mt-3" *ngIf="packs.length > 0">
+        <thead>
+          <tr>
+            <th>Nom de l'offre</th>
+            <th>Durée (mois)</th>
+            <th>Prix Mensuel (€)</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pack of packs">
+            <td>{{ pack.offerName }}</td>
+            <td>{{ pack.durationMonths }}</td>
+            <td>{{ pack.monthlyPrice }}</td>
+            <td>
+              <button class="btn btn-success btn-sm" (click)="subscribeToPack(pack.id)">Choisir ceci</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      <p *ngIf="packs.length === 0">Aucune offre disponible.</p>
+    </div>
+  </div>
+</div>
+
+
+
+  

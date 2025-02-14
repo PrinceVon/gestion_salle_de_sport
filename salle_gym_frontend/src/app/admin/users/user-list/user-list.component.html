@@ -1,0 +1,50 @@
+<div class="d-flex">
+    <app-sidebar-admin></app-sidebar-admin>
+    <div class="content flex-grow-1 p-4">
+        <div class="container mt-4">
+            <h2>📄 Liste des Utilisateurs</h2>
+          
+            <table class="table table-bordered table-striped">
+              <thead class="table-dark">
+                <tr>
+                  <th>#</th>
+                  <th>👤 Nom d'utilisateur</th>
+                  <th>🎭 Rôle</th>
+                  <th>⚙ Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of users; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ user.username }}</td>
+                  <td>{{ user.role }}</td>
+                  <td>
+                    <button class="btn btn-warning btn-sm me-2" (click)="editUser(user)">✏ Modifier</button>
+                    <button class="btn btn-danger btn-sm" (click)="deleteUser(user.id)">🗑 Supprimer</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          
+            <div *ngIf="selectedUser" class="mt-4">
+              <h3>✏ Modifier Utilisateur</h3>
+              <form [formGroup]="editForm" (ngSubmit)="updateUser()">
+                <div class="mb-3">
+                  <label class="form-label">👤 Nom d'utilisateur</label>
+                  <input type="text" class="form-control" formControlName="username">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">🎭 Rôle</label>
+                  <select class="form-select" formControlName="role">
+                    <option value="ADMIN">👑 ADMIN</option>
+                    <option value="GERANT">📋 GERANT</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Mettre à jour</button>
+                <button type="button" class="btn btn-secondary ms-2" (click)="cancelEdit()">Annuler</button>
+              </form>
+            </div>
+          </div>         
+    </div>
+  </div>
+

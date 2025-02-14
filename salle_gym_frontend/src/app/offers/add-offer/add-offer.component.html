@@ -1,0 +1,35 @@
+<div class="d-flex">
+  <app-sidebar></app-sidebar>
+  <div class="content flex-grow-1 p-4">
+    <div class="container mt-4">
+      <h2 class="text-center">➕ Ajouter une Offre</h2>
+    
+      <form (ngSubmit)="addOffer()" #offerForm="ngForm" class="border p-4 rounded shadow-sm bg-light">
+        <div class="mb-3">
+          <label for="offerName" class="form-label">Nom de l'Offre</label>
+          <input type="text" id="offerName" class="form-control" [(ngModel)]="offer.offerName" name="offerName" required>
+        </div>
+    
+        <div class="mb-3">
+          <label for="durationMonths" class="form-label">Durée (Mois)</label>
+          <input type="number" id="durationMonths" class="form-control" [(ngModel)]="offer.durationMonths" name="durationMonths" required>
+        </div>
+    
+        <div class="mb-3">
+          <label for="monthlyPrice" class="form-label">Prix Mensuel (FCFA)</label>
+          <input type="number" step="0.01" id="monthlyPrice" class="form-control" [(ngModel)]="offer.monthlyPrice" name="monthlyPrice" required>
+        </div>
+    
+        <button type="submit" class="btn btn-primary w-100">✅ Ajouter l'Offre</button>
+      </form>
+    
+      <div *ngIf="message" class="alert alert-success mt-3">{{ message }}</div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  

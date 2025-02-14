@@ -1,0 +1,55 @@
+<div class="d-flex">
+    <app-sidebar-admin></app-sidebar-admin>
+
+    <div class="content flex-grow-1 p-4">
+        <h2 class="mb-4 text-center text-primary fw-bold">
+            📊 Tableau de bord - <span class="text-dark">Administration</span>
+        </h2>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="card stat-card shadow-sm border-0 bg-light">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold text-secondary">👤 Clients Actifs</h5>
+                        <p class="card-text fw-bold fs-2 text-primary">{{ activeClients }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card stat-card shadow-sm border-0 bg-light">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold text-secondary">👤 Clients Inactifs</h5>
+                        <p class="card-text fw-bold fs-2 text-primary">{{ inactiveClients }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card stat-card shadow-sm border-0 bg-light">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold text-secondary">💰 Chiffre d'Affaires Mensuel</h5>
+                        <p class="card-text fw-bold fs-2 text-success">{{ monthlyRevenue }} CFA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-8 col-lg-6 mx-auto">
+                <div class="card shadow-sm border-0 p-4">
+                    <h5 class="card-title text-center fw-bold">📤 Exporter les Abonnements</h5>
+                    <p class="text-muted text-center">Sélectionnez une période et téléchargez les abonnements.</p>
+                    <div class="d-flex flex-column">
+                        <input type="date" [(ngModel)]="startDate" class="form-control mb-2 shadow-sm">
+                        <input type="date" [(ngModel)]="endDate" class="form-control mb-3 shadow-sm">
+                        <button class="btn btn-primary w-100 d-flex align-items-center justify-content-center gap-2 shadow-sm"
+                            (click)="exportSubscriptions()">
+                            <i class="bi bi-file-earmark-arrow-down"></i> Exporter
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

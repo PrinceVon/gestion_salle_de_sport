@@ -1,0 +1,38 @@
+<div class="d-flex">
+  <app-sidebar></app-sidebar>
+  <div class="content flex-grow-1 p-4">
+    <div class="container mt-4">
+      <h2>🔍 Rechercher un client pour sa souscription</h2>
+    
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" [(ngModel)]="searchQuery" (input)="onSearch()" placeholder="Rechercher par nom">
+      </div>
+    
+      <table class="table table-striped mt-3" *ngIf="customers.length > 0">
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Téléphone</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let customer of customers">
+            <td>{{ customer.lastName }}</td>
+            <td>{{ customer.firstName }}</td>
+            <td>{{ customer.phoneNumber }}</td>
+            <td>
+              <button class="btn btn-primary btn-sm" (click)="subscribe(customer.id)">Souscrire</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      <p *ngIf="customers.length === 0 && searchQuery">Aucun client trouvé.</p>
+    </div>
+    
+  </div>
+</div>
+
+

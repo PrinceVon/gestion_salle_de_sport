@@ -1,0 +1,37 @@
+<div class="d-flex">
+    <app-sidebar-admin></app-sidebar-admin>
+    <div class="content flex-grow-1 p-4">
+        <div class="container mt-4">
+            <h2>➕ Ajouter un Utilisateur</h2>
+            
+            <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+              <div class="mb-3">
+                <label for="username" class="form-label">👤 Nom d'utilisateur</label>
+                <input type="text" id="username" class="form-control" formControlName="username" required>
+              </div>
+          
+              <div class="mb-3">
+                <label for="password" class="form-label">🔑 Mot de passe</label>
+                <input type="password" id="password" class="form-control" formControlName="password" required>
+              </div>
+          
+              <div class="mb-3">
+                <label for="role" class="form-label">🎭 Rôle</label>
+                <select id="role" class="form-select" formControlName="role" required>
+                  <option value="ADMIN">👑 ADMIN</option>
+                  <option value="GERANT">📋 GERANT</option>
+                </select>
+              </div>
+          
+              <button type="submit" class="btn btn-primary">Ajouter</button>
+            </form>
+          </div>
+    </div>
+</div>
+
+
+
+
+
+  
+  

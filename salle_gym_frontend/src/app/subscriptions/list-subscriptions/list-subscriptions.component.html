@@ -1,0 +1,53 @@
+<div class="d-flex">
+  <app-sidebar></app-sidebar>
+  <div class="content flex-grow-1 p-4">
+    <div class="container">
+      <h2 class="text-center my-4">📜 Liste des Abonnements</h2>
+    
+      <div class="mb-3">
+        <input 
+          type="text" 
+          class="form-control" 
+          placeholder="🔍 Rechercher un client par nom..."
+          [(ngModel)]="searchTerm"
+          (input)="filterSubscriptions()"
+        />
+      </div>
+    
+      <table class="table table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th>Nom complet du client </th>
+            <th>Téléphone</th>
+            <th>Offre</th>
+            <th>Date de début</th>
+            <th>Durée (mois)</th>
+            <th>Prix Mensuel (€)</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let sub of filteredSubscriptions">
+            <td>  {{ sub.customer.lastName }}  {{ sub.customer.firstName }} </td>
+            <td>{{ sub.customer.phoneNumber }}</td>
+            <td>{{ sub.pack.offerName }}</td>
+            <td>{{ sub.startDate }}</td>
+            <td>{{ sub.pack.durationMonths }}</td>
+            <td>{{ sub.pack.monthlyPrice }}</td>
+            <td>
+              <button class="btn btn-danger btn-sm" (click)="cancelSubscription(sub.id)">🗑 Résilier</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      <div *ngIf="filteredSubscriptions.length === 0" class="alert alert-warning text-center">
+        Aucun abonnement trouvé.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  

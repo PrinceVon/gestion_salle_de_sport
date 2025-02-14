@@ -1,0 +1,9 @@
+.container {
+    max-width: 900px;
+  }
+  
+  .table {
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  

@@ -1,0 +1,22 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2 class="text-center">🔐 Connexion</h2>
+    <form (submit)="login()">
+      <div class="mb-3">
+        <label for="username" class="form-label">Nom d'utilisateur</label>
+        <input type="text" id="username" [(ngModel)]="username" name="username" 
+               class="form-control" placeholder="Entrez votre nom d'utilisateur" required autocomplete="username" />
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Mot de passe</label>
+        <input type="password" id="password" [(ngModel)]="password" name="password" 
+               class="form-control" placeholder="Entrez votre mot de passe" required autocomplete="current-password" />
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100">🚀 Se connecter</button>
+    </form>
+
+    <p *ngIf="errorMessage" class="error mt-3">{{ errorMessage }}</p>
+  </div>
+</div>

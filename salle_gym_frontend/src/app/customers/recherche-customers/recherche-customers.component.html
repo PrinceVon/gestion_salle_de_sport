@@ -1,0 +1,49 @@
+<div class="d-flex">
+  <app-sidebar></app-sidebar>
+  <div class="content flex-grow-1 p-4">
+    <div class="container mt-3">
+      <h2>Recherche de Clients</h2>
+    
+      <!-- Champ de recherche -->
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="searchTerm"
+        placeholder="Rechercher un client par nom"
+        (input)="onSearch()"
+      />
+    
+      <!-- Tableau des résultats -->
+      <table class="table table-striped mt-3" *ngIf="customers.length > 0">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let client of customers; let i = index">
+            <td>{{ i+1 }}</td>
+            <td>{{ client.lastName }}</td>
+            <td>{{ client.firstName }}</td>
+            <td>
+              <button class="btn btn-primary btn-sm" (click)="editClient(client)">Modifier</button>
+              <button class="btn btn-danger btn-sm" (click)="deleteClient(client.id)">Supprimer</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      <p *ngIf="customers.length === 0 && searchTerm">Aucun client trouvé.</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+  

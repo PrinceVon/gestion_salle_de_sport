@@ -1,0 +1,59 @@
+<nav class="d-flex flex-column bg-dark text-white vh-100 p-3 sidebar">
+  <h4 class="text-center">Dashboard Gérant</h4>
+  <hr>
+
+  <ul class="nav flex-column">
+    <li class="nav-item">
+      <a class="nav-link text-white d-flex justify-content-between align-items-center"
+         data-bs-toggle="collapse" 
+         href="#clientsMenu" 
+         (click)="toggleMenu('clients')">
+        📋 Clients
+        <span class="caret" [class.rotate]="menuState['clients']">▼</span>
+      </a>
+      <ul class="collapse list-unstyled ms-3" id="clientsMenu">
+        <li><a routerLink="/clients/liste" class="nav-link text-white">📄 Liste des Clients</a></li>
+        <li><a routerLink="/clients/recherche" class="nav-link text-white">🔍 Recherche</a></li>
+        <li><a routerLink="/clients/ajouter" class="nav-link text-white">➕ Ajouter un Client</a></li>
+      </ul>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link text-white d-flex justify-content-between align-items-center"
+         data-bs-toggle="collapse" 
+         href="#offresMenu" 
+         (click)="toggleMenu('offres')">
+        💼 Offres d'Abonnement
+        <span class="caret" [class.rotate]="menuState['offres']">▼</span>
+      </a>
+      <ul class="collapse list-unstyled ms-3" id="offresMenu">
+        <li><a routerLink="/offres/ajouter" class="nav-link text-white">➕ Ajouter une Offre</a></li>
+        <li><a routerLink="/offres/liste" class="nav-link text-white">📄 Liste des Offres</a></li>
+      </ul>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link text-white d-flex justify-content-between align-items-center"
+         data-bs-toggle="collapse" 
+         href="#abonnementsMenu" 
+         (click)="toggleMenu('abonnements')">
+        🔄 Abonnements
+        <span class="caret" [class.rotate]="menuState['abonnements']">▼</span>
+      </a>
+      <ul class="collapse list-unstyled ms-3" id="abonnementsMenu">
+        <li><a routerLink="/abonnements/souscrire" class="nav-link text-white">📝 Souscrire un Abonnement</a></li>
+        <li><a routerLink="/abonnements/liste" class="nav-link text-white">📄 Liste des Abonnements</a></li>
+      </ul>
+    </li>
+
+    <li class="nav-item">
+      <a [routerLink]="['/mon-compte', username]" class="nav-link text-white">
+        ⚙️ Mon Compte
+      </a>
+    </li>
+
+    <li class="nav-item mt-3">
+      <button class="btn btn-danger w-100"><a (click)="logout()">🚪 Déconnexion</a></button>
+    </li>
+  </ul>
+</nav>

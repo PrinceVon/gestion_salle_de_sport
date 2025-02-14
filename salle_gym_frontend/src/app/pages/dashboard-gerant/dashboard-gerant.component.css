@@ -1,0 +1,47 @@
+.dashboard-container {
+    height: 100vh;
+    display: flex;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Aligne vers le haut */
+    align-items: center;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+.top-section {
+    margin-top: 40px; /* Ajuste la hauteur pour le centrer vers le haut */
+}
+
+.dashboard-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.dashboard-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.options-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.arrow {
+    font-size: 2rem;
+    color: #007bff;
+}

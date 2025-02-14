@@ -1,0 +1,43 @@
+<div class="d-flex">
+  <app-sidebar></app-sidebar>
+  <div class="content flex-grow-1 p-4">
+    <div class="container mt-4">
+      <h2 class="mb-3">Liste des Clients</h2>
+    
+      <table class="table table-striped table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Date d'inscription</th>
+            <th>Numéro de téléphone</th>
+            <th>Statut d'abonnement</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let client of clients; let i = index">
+            <td>{{i+1 }}</td>
+            <td>{{ client.lastName }}</td>
+            <td>{{ client.firstName }}</td>
+            <td>{{ client.registrationDate }}</td>
+            <td>{{ client.phoneNumber }}</td>
+            <td>{{ client.activeSubscription ? 'Abonnement bien actif' : 'Pas d\'abonnement actif' }}</td>
+            <td>
+              <button class="btn btn-warning btn-sm" (click)="editClient(client.id)">Modifier</button>
+              <button class="btn btn-danger btn-sm ms-2" (click)="deleteClient(client.id)">Supprimer</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+  

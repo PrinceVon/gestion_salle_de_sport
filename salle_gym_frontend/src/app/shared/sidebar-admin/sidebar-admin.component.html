@@ -1,0 +1,39 @@
+<nav class="sidebar">
+  <ul class="list-unstyled">
+    <li class="my-3">
+      <a [routerLink]="['/dashboard-admin', storedUsername]" class="nav-link"> 
+        🏠 Dashboard
+      </a>
+    </li>
+
+    <li class="my-3">
+      <a class="nav-link d-flex justify-content-between align-items-center"
+         data-bs-toggle="collapse"
+         href="#usersMenu"
+         (click)="toggleMenu('users')">
+        👥 Gestion des Utilisateurs
+        <span class="caret" [class.rotate]="menuState['users']">▼</span>
+      </a>
+      <ul class="collapse list-unstyled ms-3" id="usersMenu">
+        <li class="my-2"><a routerLink="/admin/users/add" class="nav-link">➕ Ajouter un Utilisateur</a></li>      
+        <li class="my-2"><a routerLink="/admin/users/list" class="nav-link">📄 Liste des Utilisateurs</a></li>
+      </ul>
+    </li>
+
+    <li class="my-3">
+      <a class="nav-link d-flex justify-content-between align-items-center"
+         data-bs-toggle="collapse"
+         href="#accountMenu"
+         (click)="toggleMenu('account')">
+        ⚙️ Mon Compte
+        <span class="caret" [class.rotate]="menuState['account']">▼</span>
+      </a>
+      <ul class="collapse list-unstyled ms-3" id="accountMenu">
+        <li class="my-2"><a routerLink="/admin/profile/password" class="nav-link">🔑 Profil et mot de passe</a></li>      
+        <li class="my-2">
+          <button class="btn btn-danger w-100"><a (click)="logout()">🚪 Déconnexion</a></button>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>

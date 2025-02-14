@@ -1,0 +1,13 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.collapse {
+    transition: height 0.3s ease-out;
+  }
+  
+  .dashboard-container {
+    min-height: 100vh;
+    background: #f8f9fa;
+}
+
+

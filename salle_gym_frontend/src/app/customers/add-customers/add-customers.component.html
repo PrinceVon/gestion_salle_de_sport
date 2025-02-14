@@ -1,0 +1,41 @@
+<div class="d-flex">
+  <app-sidebar></app-sidebar>
+  <div class="content flex-grow-1 p-4">
+    <div class="container mt-4">
+      <h2 class="text-center">Ajouter un Client</h2>
+      <form (ngSubmit)="addCustomer()" class="p-4 border rounded shadow bg-light">
+    
+        <div class="mb-3">
+          <label for="lastName" class="form-label">Nom</label>
+          <input type="text" class="form-control" id="lastName" [(ngModel)]="customer.lastName" name="lastName" required>
+        </div>
+    
+        <div class="mb-3">
+          <label for="firstName" class="form-label">Prénom</label>
+          <input type="text" class="form-control" id="firstName" [(ngModel)]="customer.firstName" name="firstName" required>
+        </div>
+    
+        <div class="mb-3">
+          <label for="phoneNumber" class="form-label">Numéro de téléphone</label>
+          <input type="text" class="form-control" id="phoneNumber" [(ngModel)]="customer.phoneNumber" name="phoneNumber" required>
+        </div>
+    
+        <div class="mb-3">
+          <label for="registrationDate" class="form-label">Date d'inscription</label>
+          <input type="date" class="form-control" id="registrationDate" [(ngModel)]="customer.registrationDate" name="registrationDate" required>
+        </div>
+    
+        <div class="text-center">
+          <button type="submit" class="btn btn-success">Ajouter</button>
+          <button type="button" class="btn btn-secondary ms-2" (click)="cancel()">Annuler</button>
+        </div>
+    
+      </form>
+    </div>
+    
+  </div>
+</div>
+
+
+
+
