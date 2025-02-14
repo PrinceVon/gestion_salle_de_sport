@@ -59,6 +59,7 @@ export class ListSubscriptionsComponent implements OnInit {
               text: 'L’abonnement a été résilié avec succès.',
             }).then(() => {
               this.loadSubscriptions();
+              location.reload();
             });
           },
           error: () => {

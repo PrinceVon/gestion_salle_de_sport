@@ -13,6 +13,8 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
   errorMessage: string = '';
+  showPassword: boolean = false;
+
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -41,7 +43,11 @@ export class LoginComponent {
         this.errorMessage = 'Identifiants incorrects.';
       }
     });
-}
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
 
   
   
